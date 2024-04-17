@@ -1,22 +1,30 @@
-function getPersonajes(done) {
-    const resultado = fetch("https://rickandmortyapi.com/api/character")
-    resultado
-        .then(response => response.json())
-        .then(data => {
-            done(data)
-        })
-       
+//Creamos URL
+const URL = "https://rickandmortyapi.com/api/character"
+
+
+async function getPersonajes(done) {
+    try {
+        const resultado = await fetch(URL)
+        resultado
+            .then(response => response.json())
+            .then(data => {
+                done(data)
+            })
+    } catch (error) {
+        console.log(error.message)
+    }
+
 }
 
 
-getPersonajes(data=>{
+getPersonajes(async(data) => {
 
     // Obtenemos los primeros 15 personajes con el .Slice
-    let personajes= data.results.slice(0, 15) 
+    let personajes = await data.results.slice(0, 15)
     // Recoremos cada uno de los personajes insertandolos 
     personajes.forEach(personaje => {
 
-        const part = `
+        const part =`
         <div class="card">
         <div class="imagen-contenedor">
            <img src="${personaje.image}" alt="">
@@ -25,8 +33,8 @@ getPersonajes(data=>{
         <p>${personaje.status}</p>
         </div>
         `
-        const articulo = document.createRange().createContextualFragment(part)  
-        
+        const articulo = document.createRange().createContextualFragment(part)
+
         const main = document.getElementById("personajes")
         main.append(articulo)
 
