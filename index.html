@@ -12,17 +12,24 @@
     <header>
         <h1>Riack and Morty Personajes oficiales</h1>
     </header>
-    </section>
-   <article>
-    <h1></h1>
-   </article>
 
-    <section id="personajes">
+    <select id="filtro">
+        <option value="todos">Todos</option>
+        <!-- Añadimos otras opciones con el nombre del personaje -->
+    </select>
+    <section class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3" id="personajes">
     </section>
 
     <script src="./js/back.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-
+   
+    <footer class="bg-gray-800 text-white py-4 text-center">
+        <div class="flex flex-col items-center">
+          <span class="text-lg font-bold">edDev y CarlosTR1</span>
+          <span class="text-sm">Desarrolladores Fullstack Senior</span>
+          <span class="text-xs">&copy; Todos los derechos reservados</span>
+        </div>
+      </footer>
 </body>
 
 </html>
