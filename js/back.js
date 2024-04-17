@@ -4,8 +4,7 @@ const URL = "https://rickandmortyapi.com/api/character"
 
 async function getPersonajes(done) {
     try {
-        const resultado = await fetch(URL)
-        resultado
+        await fetch(URL)
             .then(response => response.json())
             .then(data => {
                 done(data)
