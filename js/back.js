@@ -29,9 +29,9 @@ async function obtenerYMostrarTarjetas() {
 function crearTarjeta() {
     personajes.forEach(personaje => {
         const part = `
-         <div class="flex flex-col">
+         <div class="flex flex-col m-4">
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="${personaje.image}" class="w-full max-h-full object-cover">
+            <img src="${personaje.image}" class="w-full max-h-full object-cover img-zoom transition-all duration-500">
             <div class="p-3">
               <h2 class="text-lg text-center font-semibold">${personaje.name}</h2>
               </div>
@@ -94,10 +94,10 @@ function crearTarjetaFiltrada(personajes) {
     main.innerHTML = ''; // Limpiar contenido anterior
     personajes.forEach(personaje => {
         const part = `
-        <div class="flex justify-center items-center h-screen">
+        <div class="flex justify-center items-center m-4 h-auto">
         <div class="w-full max-w-md">
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="${personaje.image}" class="w-full object-cover">
+            <img src="${personaje.image}" class="w-full object-cover img-zoom transition-all duration-500">
             <div class="p-3">
               <h2 class="text-lg text-center font-semibold">${personaje.name}</h2>
             </div>
@@ -106,19 +106,23 @@ function crearTarjetaFiltrada(personajes) {
       </div>
              `
         const personajesSection = document.getElementById('personajes');
+      
         // Quitamos las clases específicas del elemento
         personajesSection.classList.remove('grid-cols-1', 'sm:grid-cols-2', 'md:grid-cols-3', 'gap-3');
         const articulo = document.createRange().createContextualFragment(part)
         if (personajes.length > 1) {
-            const personajesSection = document.getElementById('personajes');
-            personajesSection.classList.add('grid-cols-1', 'sm:grid-cols-2', 'md:grid-cols-3', 'gap-3');
-
+            personajesSection.classList.add('grid-cols-1', 'sm:grid-cols-2', 'md:grid-cols-3', 'gap-3', 'h-auto');
         }
         const main = document.getElementById("personajes")
         main.append(articulo)
 
     });
 
+}
+
+function Menu(e) {
+    let list = document.querySelector('ul');
+    e.name === 'menu' ? (e.name = "close", list.classList.add('top-[75px]'), list.classList.add('opacity-100'), list.classList.add('z-auto')) : (e.name = "menu", list.classList.remove('top-[75px]'), list.classList.remove('opacity-100'))
 }
 
 obtenerYMostrarTarjetas()
