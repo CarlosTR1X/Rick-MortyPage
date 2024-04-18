@@ -32,7 +32,7 @@ function crearTarjeta() {
          <div class="flex flex-col m-4">
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <img src="${personaje.image}" class="w-full max-h-full object-cover img-zoom transition-all duration-500">
-            <div class="p-3">
+            <div class="p-3 absolute transition-shadow mb-2">
               <h2 class="text-lg text-center font-semibold">${personaje.name}</h2>
               </div>
               </div>
@@ -98,7 +98,7 @@ function crearTarjetaFiltrada(personajes) {
         <div class="w-full max-w-md">
           <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <img src="${personaje.image}" class="w-full object-cover img-zoom transition-all duration-500">
-            <div class="p-3">
+            <div class="p-3 absolute transition-shadow">
               <h2 class="text-lg text-center font-semibold">${personaje.name}</h2>
             </div>
           </div>
